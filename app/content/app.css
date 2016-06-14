@@ -27,6 +27,7 @@ h1, h2, h3, h4, h5 {
 header .well {
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 24px;
 }
 
 header .well .user-links {

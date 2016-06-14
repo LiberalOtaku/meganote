@@ -6,9 +6,14 @@
       </button>
 
       <ul id="notes">
-        <li>Note 1</li>
-        <li>Note 2</li>
-        <li>Note 3</li>
+        <li ng-repeat="note in notes track by $index" ng-click="edit(note)">
+          <p>
+            <span class="note-title" ng-bind="note.title"></span>
+          </p>
+          <p>
+            <span class="note-body" ng-bind="note.body"></span>
+          </p>
+        </li>
       </ul>
     </nav>
 
