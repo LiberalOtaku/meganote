@@ -1,4 +1,29 @@
-<form ng-submit="save(note)">
+<form ng-submit="add(note)" ng-hide="editing">
+  <p>
+    <input
+      type="text"
+      name="title"
+      id="note_title"
+      placeholder="Title Your Note"
+      ng-model="note.title">
+  </p>
+  <p>
+    <textarea
+      name="body_html"
+      placeholder="Just start typing..."
+      ng-model="note.body"
+      ></textarea>
+  </p>
+  <div class="form-actions">
+    <input
+      type="submit"
+      name="commit"
+      value="Add"
+      class="btn btn-default">
+  </div>
+</form>
+
+<form ng-submit="save(note)" ng-show="editing">
   <p>
     <input
       type="text"

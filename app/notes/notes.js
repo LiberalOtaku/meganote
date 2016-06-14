@@ -26,7 +26,7 @@
     $scope.notes = [];
     $scope.note = { title: '', body: '' };
 
-    $scope.save = function() {
+    $scope.add = function() {
       $scope.notes.push($scope.note);
       $scope.note = { title: '', body: '' };
     };
@@ -34,6 +34,11 @@
     $scope.edit = function(note) {
       $scope.editing = true;
       $scope.note = note;
+    };
+
+    $scope.save = function() {
+      $scope.note = {};
+      $scope.editing = false;
     };
   };
 })();
