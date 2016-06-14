@@ -10,16 +10,24 @@
   <p>
     <textarea
       name="body_html"
+      class="form-control"
+      rows="4"
       placeholder="Just start typing..."
       ng-model="note.body_html"
       ></textarea>
   </p>
   <div class="form-actions">
-    <input
-      type="submit"
-      name="commit"
-      value="Add"
-      class="btn btn-default">
+    <div class="container wrap">
+      <div class="row">
+        <div class="col-xs-6">
+          <input
+            type="submit"
+            name="commit"
+            value="Add"
+            class="btn btn-primary form-control">
+        </div>
+      </div>
+    </div>
   </div>
 </form>
 
@@ -35,15 +43,30 @@
   <p>
     <textarea
       name="body_html"
+      class="form-control"
+      rows="4"
       placeholder="Just start typing..."
       ng-model="note.body_html"
       ></textarea>
   </p>
   <div class="form-actions">
-    <input
-      type="submit"
-      name="commit"
-      value="Save"
-      class="btn btn-default">
+    <div class="container wrap">
+      <div class="row">
+        <div class="col-xs-6">
+          <input
+            type="submit"
+            name="commit"
+            value="Save"
+            class="btn btn-primary form-control">
+        </div>
+        <div class="col-xs-6">
+          <input
+            type="submit"
+            name="remove"
+            value="Remove"
+            class="btn btn-danger form-control">
+        </div>
+      </div>
+    </div>
   </div>
 </form>

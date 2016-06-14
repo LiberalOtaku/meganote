@@ -31,6 +31,7 @@
 
     $scope.clearForm = function() {
       $scope.note = { title: '', body_html: '' };
+      $scope.editing = false;
     };
 
     $scope.add = function() {
@@ -44,8 +45,8 @@
     };
 
     $scope.save = function() {
+      // NotesService.update($scope.note);
       $scope.clearForm();
-      $scope.editing = false;
     };
 
     $scope.clearForm();
