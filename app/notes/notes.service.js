@@ -5,12 +5,16 @@
   NotesService.$inject = ['$http'];
   function NotesService($http) {
     var service = this;
+    service.notes = [];
 
     service.getNotes = function() {
-      $http.get('https://meganote.herokuapp.com/notes')
-        .then(function(response) {
-          console.log(response.data.length);
-        });
+      var notesPromise = $http.get('https://meganote.herokuapp.com/notes');
+
+      notesPromise.then(function(response) {
+        service.notes = response.data;
+      });
+      
+      return notesPromise;
     };
   };
 })();
