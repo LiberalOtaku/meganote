@@ -13,8 +13,20 @@
       notesPromise.then(function(response) {
         service.notes = response.data;
       });
-      
+
       return notesPromise;
     };
-  };
+
+    service.create = function(note) {
+      var notesPromise = $http.post('https://meganote.herokuapp.com/notes', {
+        note: note
+      });
+
+      notesPromise.then(function(response) {
+        service.notes.unshift(response.data.note);
+      });
+
+      return notesPromise;
+    };
+  }
 })();

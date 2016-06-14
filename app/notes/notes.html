@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <nav class="col-xs-4" id="sidebar">
-      <button class="btn btn-default">
+      <button class="btn btn-default" ng-click="save()">
         New Note
       </button>
 
@@ -11,7 +11,7 @@
             <span class="note-title" ng-bind="note.title"></span>
           </p>
           <p>
-            <span class="note-body" ng-bind="note.body"></span>
+            <span class="note-body" ng-bind="note.body_html"></span>
           </p>
         </li>
       </ul>

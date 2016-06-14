@@ -17,7 +17,7 @@
       url: '/:noteId',
       templateUrl: 'notes/notes-form.html'
     });
-  };
+  }
 
   NotesController.$inject = ['$state', '$scope', 'NotesService'];
   function NotesController($state, $scope, NotesService) {
@@ -28,11 +28,14 @@
         $scope.notes = NotesService.notes;
       });
 
-    $scope.note = { title: '', body: '' };
+
+    $scope.clearForm = function() {
+      $scope.note = { title: '', body_html: '' };
+    };
 
     $scope.add = function() {
-      $scope.notes.push($scope.note);
-      $scope.note = { title: '', body: '' };
+      NotesService.create($scope.note);
+      $scope.clearForm();
     };
 
     $scope.edit = function(note) {
@@ -41,8 +44,10 @@
     };
 
     $scope.save = function() {
-      $scope.note = {};
+      $scope.clearForm();
       $scope.editing = false;
     };
-  };
+
+    $scope.clearForm();
+  }
 })();
