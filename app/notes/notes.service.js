@@ -28,5 +28,21 @@
 
       return notesPromise;
     };
+
+    service.update = function(note) {
+      return $http.put('https://meganote.herokuapp.com/notes/' + note._id, {
+        note: note
+      });
+    };
+
+    service.remove = function(note, index) {
+      var notesPromise = $http.delete('https://meganote.herokuapp.com/notes/' + note._id);
+
+      notesPromise.then(function() {
+        service.notes.splice(index, 1);
+      });
+
+      return notesPromise;
+    };
   }
 })();

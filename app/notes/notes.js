@@ -39,13 +39,19 @@
       $scope.clearForm();
     };
 
-    $scope.edit = function(note) {
+    $scope.edit = function(note, index) {
       $scope.editing = true;
       $scope.note = note;
+      $scope.current_index = index;
     };
 
     $scope.save = function() {
-      // NotesService.update($scope.note);
+      NotesService.update($scope.note);
+      $scope.clearForm();
+    };
+
+    $scope.delete = function(index) {
+      NotesService.remove($scope.note, index);
       $scope.clearForm();
     };
 

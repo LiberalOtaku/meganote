@@ -6,7 +6,7 @@
       </button>
 
       <ul id="notes">
-        <li ng-repeat="note in notes track by $index" ng-click="edit(note)">
+        <li ng-repeat="note in notes track by $index" ng-click="edit(note, $index)">
           <p>
             <span class="note-title" ng-bind="note.title"></span>
           </p>
