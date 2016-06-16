@@ -35,8 +35,10 @@
     };
 
     $scope.add = function() {
-      NotesService.create($scope.note);
-      $scope.clearForm();
+      NotesService.create($scope.note)
+        .then(function() {
+          $scope.clearForm();
+        });
     };
 
     $scope.edit = function(note, index) {
@@ -46,13 +48,17 @@
     };
 
     $scope.save = function() {
-      NotesService.update($scope.note);
-      $scope.clearForm();
+      NotesService.update($scope.note)
+        .then(function() {
+          $scope.clearForm();
+        });
     };
 
     $scope.delete = function(index) {
-      NotesService.remove($scope.note, index);
-      $scope.clearForm();
+      NotesService.remove($scope.note, index)
+        .then(function() {
+          $scope.clearForm();
+        });
     };
 
     $scope.clearForm();
