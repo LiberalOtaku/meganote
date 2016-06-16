@@ -36,11 +36,15 @@
 
     $scope.add = function() {
       NotesService.create($scope.note)
-        .then(function(response) {
-          $scope.note = response.data.note;
-          Flash.create('success', response.data.message);
-          $scope.clearForm();
-        });
+        .then(
+          function(response) {
+            $scope.note = response.data.note;
+            Flash.create('success', response.data.message);
+            $scope.clearForm();
+          },
+          function() {
+            Flash.create('danger', 'Oops, something went wrong!');
+          });
     };
 
     $scope.edit = function(note, index) {
@@ -51,20 +55,28 @@
 
     $scope.save = function() {
       NotesService.update($scope.note)
-        .then(function(response) {
-          $scope.note = response.data.note;
-          Flash.create('success', response.data.message);
-          $scope.clearForm();
-        });
+        .then(
+          function(response) {
+            $scope.note = response.data.note;
+            Flash.create('success', response.data.message);
+            $scope.clearForm();
+          },
+          function() {
+            Flash.create('danger', 'Oops, something went wrong!');
+          });
     };
 
     $scope.delete = function(index) {
       NotesService.remove($scope.note, index)
-        .then(function(response) {
-          $scope.note = response.data.note;
-          Flash.create('success', response.data.message);
-          $scope.clearForm();
-        });
+        .then(
+          function(response) {
+            $scope.note = response.data.note;
+            Flash.create('success', response.data.message);
+            $scope.clearForm();
+          },
+          function() {
+            Flash.create('danger', 'Oops, something went wrong!');
+          });
     };
 
     $scope.clearForm();

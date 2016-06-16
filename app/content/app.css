@@ -148,3 +148,7 @@ span.login {
 .ta-editor {
   margin-top: 0.5em;
 }
+
+body .alert {
+  margin-top: 1rem;
+}
