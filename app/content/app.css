@@ -152,3 +152,10 @@ span.login {
 body .alert {
   margin-top: 1rem;
 }
+
+.fade {
+  opacity: 0;
+  -webkit-transition: 1.0s !important;
+       -o-transition: 1.0s !important;
+          transition: 1.0s !important;
+}

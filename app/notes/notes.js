@@ -39,11 +39,11 @@
         .then(
           function(response) {
             $scope.note = response.data.note;
-            Flash.create('success', response.data.message);
+            Flash.create('success', response.data.message, 3000, {class: 'fade in', id: 'add-success'}, false);
             $scope.clearForm();
           },
           function() {
-            Flash.create('danger', 'Oops, something went wrong!');
+            Flash.create('danger', 'Oops, something went wrong!', 3000, {class: 'fade in', id: 'add-fail'}, false);
           });
     };
 
@@ -58,11 +58,11 @@
         .then(
           function(response) {
             $scope.note = response.data.note;
-            Flash.create('success', response.data.message);
+            Flash.create('success', response.data.message, 3000, {class: 'fade in', id: 'save-success'}, false);
             $scope.clearForm();
           },
           function() {
-            Flash.create('danger', 'Oops, something went wrong!');
+            Flash.create('danger', 'Oops, something went wrong!', 3000, {class: 'fade in', id: 'save-fail'}, false);
           });
     };
 
@@ -71,11 +71,11 @@
         .then(
           function(response) {
             $scope.note = response.data.note;
-            Flash.create('success', response.data.message);
+            Flash.create('success', response.data.message, 3000, {class: 'fade in', id: 'delete-success'}, false);
             $scope.clearForm();
           },
           function() {
-            Flash.create('danger', 'Oops, something went wrong!');
+            Flash.create('danger', 'Oops, something went wrong!', 3000, {class: 'fade in', id: 'delete-fail'}, false);
           });
     };
 
