@@ -8,13 +8,17 @@
       ng-model="note.title">
   </p>
   <p>
-    <textarea
-      name="body_html"
-      class="form-control"
-      rows="6"
+    <text-angular
+      name="add_body_html"
       placeholder="Just start typing..."
       ng-model="note.body_html"
-      ></textarea>
+      ta-toolbar="[
+        ['bold', 'italics', 'underline'],
+        ['ul', 'ol', 'indent', 'outdent'],
+        ['html'],
+        ['insertLink']
+      ]"
+      ></text-angular>
   </p>
   <div class="form-actions">
     <div class="container wrap">
@@ -41,13 +45,17 @@
       ng-model="note.title">
   </p>
   <p>
-    <textarea
-      name="body_html"
-      class="form-control"
-      rows="6"
+    <text-angular
+      name="edit_body_html"
       placeholder="Just start typing..."
       ng-model="note.body_html"
-      ></textarea>
+      ta-toolbar="[
+        ['bold', 'italics', 'underline'],
+        ['ul', 'ol', 'indent', 'outdent'],
+        ['html'],
+        ['insertLink']
+      ]"
+      ></text-angular>
   </p>
   <div class="form-actions">
     <div class="container wrap">

@@ -8,7 +8,7 @@
     service.notes = [];
 
     service.getNotes = function() {
-      var notesPromise = $http.get('http://localhost:3030');
+      var notesPromise = $http.get('http://localhost:3030/');
 
       notesPromise.then(function(response) {
         service.notes = response.data;
@@ -18,7 +18,7 @@
     };
 
     service.create = function(note) {
-      var notesPromise = $http.post('http://localhost:3030', {
+      var notesPromise = $http.post('http://localhost:3030/', {
         note: note
       });
 
@@ -43,6 +43,14 @@
       });
 
       return notesPromise;
+    };
+
+    service.find = function(id) {
+      for (var i = 0; i < service.notes.length; ++i) {
+        if (service.notes[i]._id === id) {
+          return angular.copy(service.notes[i]);
+        }
+      }
     };
   }
 })();

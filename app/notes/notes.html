@@ -1,18 +1,22 @@
 <div class="container">
   <div class="row">
     <nav class="col-xs-4" id="sidebar">
-      <button class="btn btn-success" ng-click="clearForm()">
-        New Note
-      </button>
+      <a class="btn btn-success" ng-click="clearForm()" href="http://localhost:8000/#/notes/">
+        <span style="color: white">New Note</span>
+      </a>
 
       <ul id="notes">
         <li ng-repeat="note in notes | orderBy: '-updated_at' track by $index" ng-click="edit(note, $index)">
-          <p>
-            <span class="note-title" ng-bind="note.title"></span>
-          </p>
-          <p>
-            <span class="note-body" ng-bind="note.body_html"></span>
-          </p>
+          <a class="note" ui-sref="notes.form({
+            noteId: note._id
+          })">
+            <p>
+              <span class="note-title" ng-bind="note.title"></span>
+            </p>
+            <p>
+              <span class="note-body" ng-bind-html="note.body_html"></span>
+            </p>
+          </a>
         </li>
       </ul>
     </nav>

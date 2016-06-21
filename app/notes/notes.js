@@ -10,22 +10,33 @@
     .state('notes', {
       url: '/notes',
       templateUrl: 'notes/notes.html',
-      controller: 'NotesController'
+      controller: 'NotesController',
+      resolve: {
+        notesLoaded: notesLoaded
+      }
     })
 
     .state('notes.form', {
       url: '/:noteId',
-      templateUrl: 'notes/notes-form.html'
+      templateUrl: 'notes/notes-form.html',
+      controller: 'NotesController'
     });
+  }
+
+  notesLoaded.$inject = ['NotesService'];
+  function notesLoaded(NotesService) {
+    return NotesService.getNotes();
   }
 
   NotesController.$inject = ['$state', '$scope', 'Flash', 'NotesService'];
   function NotesController($state, $scope, Flash, NotesService) {
-    $state.go('notes.form');
+
+    // $scope.note = NotesService.notes;
 
     NotesService.getNotes()
       .then(function() {
         $scope.notes = NotesService.notes;
+        $scope.note = NotesService.find($state.params.noteId);
       });
 
 
@@ -78,7 +89,5 @@
             Flash.create('danger', 'Oops, something went wrong!', 3000, {class: 'fade in', id: 'delete-fail'}, false);
           });
     };
-
-    $scope.clearForm();
   }
 })();
